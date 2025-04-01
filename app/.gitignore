@@ -17,6 +17,12 @@
 /.next/
 /out/
 
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
 # production
 /build
 

@@ -1,4 +1,4 @@
-package com.trelloclone.api;
+package com.trello_clone.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

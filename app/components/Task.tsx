@@ -6,7 +6,10 @@ interface Props {
 
 const Task: React.FC<Props> = ({ id, description, status }) => {
   return (
-    <div className="flex justify-between p-4 m-4 rounded w-[400px] bg-gray-400 bold">
+    <div
+      key={id}
+      className="flex justify-between p-4 mt-2 rounded w-[400px] bg-gray-400 bold"
+    >
       <p>{description}</p>
       <span>{status}</span>
     </div>

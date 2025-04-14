@@ -7,21 +7,23 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 import java.util.List;
-
-/**
- *
- * @author cds3h
- */
+import org.apache.coyote.Response;
+import org.springframework.http.ResponseEntity;
 
 @Repository
+@Transactional
 public class TaskDaoImplement implements TaskDao {
-    @PersistenceContext
+    @PersistenceContext 
     private EntityManager entityManager;
 
     @Override
-    @Transactional
-    public List<Task> getTareas() {
+    public List<Task> getTasks() {
         String query = "FROM Task";
         return entityManager.createQuery(query,Task.class).getResultList();
+    }
+    @Override
+    public ResponseEntity<Task> postTask( Task tarea){
+	Task taskSaved = entityManager.merge(tarea);
+	return ResponseEntity.ok(taskSaved);
     }
 }

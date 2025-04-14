@@ -5,13 +5,11 @@ import com.trello_clone.api.entity.Task;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- *
- * @author cds3h
- */
 @RestController
 @RequestMapping("/api")
 public class TaskController {
@@ -20,7 +18,11 @@ public class TaskController {
 	
 	@GetMapping("/tasks")	
 	public List<Task> getTasks(){
-		List<Task> response = taskDaoImplement.getTareas();
+		List<Task> response = taskDaoImplement.getTasks();
 		return response;
+	}
+	@PostMapping("/task")
+	public void postTask(@RequestBody Task task){
+		taskDaoImplement.postTask(task);
 	}
 }

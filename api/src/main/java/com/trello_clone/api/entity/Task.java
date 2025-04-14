@@ -1,12 +1,8 @@
 package com.trello_clone.api.entity;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.*;
 import lombok.*;
 
-/**
- *
- * @author cds3h
- */
 @Entity
 @Table(name = "tareas")
 @Getter

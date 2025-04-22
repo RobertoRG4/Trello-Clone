@@ -1,4 +1,5 @@
 package com.trello_clone.api.dao;
 
-public class LoginDao {
+public interface LoginDao {
+
 }

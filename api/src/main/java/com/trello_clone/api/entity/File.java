@@ -8,7 +8,7 @@ import lombok.Setter;
 @Table(name = "files")
 @Getter
 @Setter
-public class Files {
+public class File {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,7 +20,7 @@ public class Files {
     @Lob
     private byte[] file;
 
-    public Files(String name, byte[] file) {
+    public File(String name, byte[] file) {
         this.name = name;
         this.file = file;
     }

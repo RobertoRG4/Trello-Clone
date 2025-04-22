@@ -1,4 +1,9 @@
 package com.trello_clone.api.dao.Implement;
 
-public class LoginDaoImplement {
+import com.trello_clone.api.dao.LoginDao;
+
+public class LoginDaoImplement implements LoginDao {
+    public void getCredentials() {
+        String query = "FROM login";
+    }
 }

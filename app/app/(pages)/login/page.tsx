@@ -10,7 +10,18 @@ const Page = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log({ username, password });
-    redirect("/dashboard");
+    const response = fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    });
+    response.then((value) => {
+      if (value.ok === true) {
+        redirect("/dashboard");
+      } else alert("invalid credentials!");
+    });
   };
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { target } = event;
